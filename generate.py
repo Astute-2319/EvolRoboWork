@@ -9,10 +9,7 @@ x = 0
 y = 0
 z = 0.5
 
-for k in range(5):
-    for j in range(5):
-        for i in range(10):
-            pyrosim.Send_Cube(name="Box", pos=[x+j, y+k, z+i], size=[length*(pow(0.9, i)), width*(pow(0.9, i)), height*(pow(0.9, i))])
+pyrosim.Send_Cube(name="Box", pos=[x, y, z], size=[length, width, height])
 
 
 pyrosim.End()
