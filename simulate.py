@@ -1,3 +1,4 @@
+import numpy
 import pybullet as p
 import pybullet_data
 import pyrosim.pyrosim as pyrosim
@@ -14,11 +15,16 @@ robotID = p.loadURDF("body.urdf")
 
 pyrosim.Prepare_To_Simulate(robotID)
 
+backLegSensorValues = numpy.zeros(10000)
+
 for x in range(0, 1000):
     p.stepSimulation()
-    backLegTouch = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
-    print(backLegTouch)
+    backLegSensorValues[x] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
+    print(backLegSensorValues)
     t.sleep(1/60)
     # print(x)
+
+print(backLegSensorValues)
+
 
 p.disconnect()
