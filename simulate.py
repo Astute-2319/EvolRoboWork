@@ -17,7 +17,7 @@ pyrosim.Prepare_To_Simulate(robotID)
 
 backLegSensorValues = numpy.zeros(10000)
 
-for x in range(0, 1000):
+for x in range(0, 100):
     p.stepSimulation()
     backLegSensorValues[x] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
     print(backLegSensorValues)
@@ -25,6 +25,8 @@ for x in range(0, 1000):
     # print(x)
 
 print(backLegSensorValues)
+
+numpy.save("data/backLegSensorValues.npy", backLegSensorValues)
 
 
 p.disconnect()
