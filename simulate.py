@@ -4,6 +4,7 @@ import pybullet_data
 import pyrosim.pyrosim as pyrosim
 import time as t
 import math
+import random
 
 pi = math.pi
 
@@ -29,7 +30,13 @@ for x in range(0, 1000):
         bodyIndex = robotID,
         jointName = b"Torso_BackLeg",
         controlMode = p.POSITION_CONTROL,
-        targetPosition = -pi/4.0,
+        targetPosition = random.uniform(-pi/12.0, pi/12.0),
+        maxForce = 500)
+    pyrosim.Set_Motor_For_Joint(
+        bodyIndex = robotID,
+        jointName = b"Torso_FrontLeg",
+        controlMode = p.POSITION_CONTROL,
+        targetPosition = random.uniform(-pi/12.0, pi/12.0),
         maxForce = 500)
     t.sleep(1/60)
 
