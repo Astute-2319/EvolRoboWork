@@ -3,7 +3,8 @@ import numpy as np
 
 backLegSensorValues = np.load('data/backLegSensorValues.npy')
 frontLegSensorValues = np.load('data/frontLegSensorValues.npy')
-targetAnglesValues = np.load('data/targetAnglesVals.npy')
+targetAnglesValuesBack = np.load('data/targetAnglesValuesBack.npy')
+targetAnglesValuesFront = np.load('data/targetAnglesValuesFront.npy')
 
 # print(backLegSensorValues)
 
@@ -13,7 +14,10 @@ targetAnglesValues = np.load('data/targetAnglesVals.npy')
 
 # pyplot.legend()
 
-pyplot.plot(targetAnglesValues, label = "Target Values")
+pyplot.plot(targetAnglesValuesBack, label = "Target Values Back")
 
+pyplot.plot(targetAnglesValuesFront, label = "Target Values Front")
+
+pyplot.legend()
 
 pyplot.show()
