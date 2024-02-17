@@ -1,4 +1,4 @@
-import numpy
+import numpy as np
 import pybullet as p
 import pybullet_data
 import pyrosim.pyrosim as pyrosim
@@ -19,8 +19,8 @@ robotID = p.loadURDF("body.urdf")
 
 pyrosim.Prepare_To_Simulate(robotID)
 
-backLegSensorValues = numpy.zeros(1000)
-frontLegSensorValues = numpy.zeros(1000)
+backLegSensorValues = np.zeros(1000)
+frontLegSensorValues = np.zeros(1000)
 
 for x in range(0, 1000):
     p.stepSimulation()
