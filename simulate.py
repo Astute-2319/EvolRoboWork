@@ -3,10 +3,9 @@ import pybullet as p
 import pybullet_data
 import pyrosim.pyrosim as pyrosim
 import time as t
-import math
 import random
 
-pi = math.pi
+pi = np.pi
 
 physicsClient = p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
@@ -21,6 +20,12 @@ pyrosim.Prepare_To_Simulate(robotID)
 
 backLegSensorValues = np.zeros(1000)
 frontLegSensorValues = np.zeros(1000)
+
+targetAnglesList = np.linspace(0, 2*pi, 1000)
+targetAngles = np.sin(targetAnglesList)
+np.save("data/targetAnglesVals.npy", targetAngles)
+
+exit()
 
 for x in range(0, 1000):
     p.stepSimulation()
@@ -40,10 +45,9 @@ for x in range(0, 1000):
         maxForce = 500)
     t.sleep(1/60)
 
-# print(backLegSensorValues)
 
-numpy.save("data/backLegSensorValues.npy", backLegSensorValues)
-numpy.save("data/frontLegSensorValues.npy", frontLegSensorValues)
+np.save("data/backLegSensorValues.npy", backLegSensorValues)
+np.save("data/frontLegSensorValues.npy", frontLegSensorValues)
 
 
 p.disconnect()
