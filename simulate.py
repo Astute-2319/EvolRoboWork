@@ -3,6 +3,9 @@ import pybullet as p
 import pybullet_data
 import pyrosim.pyrosim as pyrosim
 import time as t
+import math
+
+pi = math.pi
 
 physicsClient = p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
@@ -26,7 +29,7 @@ for x in range(0, 1000):
         bodyIndex = robotID,
         jointName = b"Torso_BackLeg",
         controlMode = p.POSITION_CONTROL,
-        targetPosition = 0.0,
+        targetPosition = -pi/4.0,
         maxForce = 500)
     t.sleep(1/60)
 
