@@ -13,26 +13,16 @@ class SIMULATION:
         p.setGravity(0,0,c.std_grav)
         self.world = WORLD()
         self.robot = ROBOT()
-        pyrosim.Prepare_To_Simulate(self.robot.robotID)
+        pyrosim.Prepare_To_Simulate(self.robot.robot)
         self.robot.Prepare_To_Sense()
+        self.robot.Prepare_To_Act()
     
     def Run(self):
         for x in range(0, c.simulation_steps):
             print(x)
             p.stepSimulation()
             self.robot.Sense(x)
-            # pyrosim.Set_Motor_For_Joint(
-            #     bodyIndex = robotID,
-            #     jointName = b"Torso_BackLeg",
-            #     controlMode = p.POSITION_CONTROL,
-            #     targetPosition = target_angles_back_leg[x],
-            #     maxForce = c.torso_back_leg_max_force)
-            # pyrosim.Set_Motor_For_Joint(
-            #     bodyIndex = robotID,
-            #     jointName = b"Torso_FrontLeg",
-            #     controlMode = p.POSITION_CONTROL,
-            #     targetPosition = target_angles_front_leg[x],
-            #     maxForce = c.torso_front_leg_max_force)
+            self.robot.Act(x)
             t.sleep(c.sleep_length)
     
     def __del__(self):
