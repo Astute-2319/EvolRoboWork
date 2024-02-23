@@ -1,10 +1,10 @@
 import matplotlib.pyplot as pyplot
 import numpy as np
 
-backLegSensorValues = np.load('data/backLegSensorValues.npy')
-frontLegSensorValues = np.load('data/frontLegSensorValues.npy')
-targetAnglesValuesBack = np.load('data/targetAnglesValuesBack.npy')
-targetAnglesValuesFront = np.load('data/targetAnglesValuesFront.npy')
+backLegSensorValues = np.load('data/back_leg_sensor_values.npy')
+frontLegSensorValues = np.load('data/front_leg_sensor_values.npy')
+targetAnglesValuesBack = np.load('data/target_angles_values_back.npy')
+targetAnglesValuesFront = np.load('data/target_angles_values_front.npy')
 
 # print(backLegSensorValues)
 
