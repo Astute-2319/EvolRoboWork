@@ -14,13 +14,13 @@ class SIMULATION:
         self.world = WORLD()
         self.robot = ROBOT()
         pyrosim.Prepare_To_Simulate(self.robot.robotID)
+        self.robot.Prepare_To_Sense()
     
     def Run(self):
         for x in range(0, c.simulation_steps):
             print(x)
             p.stepSimulation()
-            # back_leg_sensor_values[x] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
-            # front_leg_sensor_values[x] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
+            self.robot.Sense(x)
             # pyrosim.Set_Motor_For_Joint(
             #     bodyIndex = robotID,
             #     jointName = b"Torso_BackLeg",

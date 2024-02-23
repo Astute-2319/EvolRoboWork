@@ -16,7 +16,7 @@
 
 # 
 
-# back_leg_sensor_values = np.zeros(c.simulation_steps)
+# 
 # front_leg_sensor_values = np.zeros(c.simulation_steps)
 
 # target_angles_list_back_leg = np.linspace(0, c.back_leg_lin_space, c.simulation_steps)
