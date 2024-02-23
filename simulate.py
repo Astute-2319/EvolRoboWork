@@ -5,16 +5,16 @@
 # import pyrosim.pyrosim as pyrosim
 # import time as t
 
-# physicsClient = p.connect(p.GUI)
-# p.setAdditionalSearchPath(pybullet_data.getDataPath())
+# 
+# 
 
-# p.setGravity(0,0,c.std_grav)
-# planeID = p.loadURDF("plane.urdf")
-# p.loadSDF("world.sdf")
+# 
+# 
+# 
 
-# robotID = p.loadURDF("body.urdf")
+# 
 
-# pyrosim.Prepare_To_Simulate(robotID)
+# 
 
 # back_leg_sensor_values = np.zeros(c.simulation_steps)
 # front_leg_sensor_values = np.zeros(c.simulation_steps)
@@ -29,23 +29,7 @@
 
 # # exit()
 
-# for x in range(0, c.simulation_steps):
-#     p.stepSimulation()
-#     back_leg_sensor_values[x] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
-#     front_leg_sensor_values[x] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
-#     pyrosim.Set_Motor_For_Joint(
-#         bodyIndex = robotID,
-#         jointName = b"Torso_BackLeg",
-#         controlMode = p.POSITION_CONTROL,
-#         targetPosition = target_angles_back_leg[x],
-#         maxForce = c.torso_back_leg_max_force)
-#     pyrosim.Set_Motor_For_Joint(
-#         bodyIndex = robotID,
-#         jointName = b"Torso_FrontLeg",
-#         controlMode = p.POSITION_CONTROL,
-#         targetPosition = target_angles_front_leg[x],
-#         maxForce = c.torso_front_leg_max_force)
-#     t.sleep(c.sleep_length)
+
 
 
 # np.save("data/back_leg_sensor_values.npy", back_leg_sensor_values)
@@ -57,4 +41,4 @@
 from simulation import SIMULATION
 
 simulation = SIMULATION()
-
+simulation.Run()
