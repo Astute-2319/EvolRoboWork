@@ -25,4 +25,5 @@ class MOTOR:
             maxForce = c.torso_back_leg_max_force)
         
     def Save_Values(self):
-        np.save("data/" + self.jointName + "_Motor.npy", self.motorValues)
+        jointStr = str(self.jointName).strip("b'")
+        np.save("data/" + jointStr + "_Motor.npy", self.motorValues)
