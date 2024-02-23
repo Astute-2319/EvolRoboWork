@@ -1,7 +1,7 @@
 import numpy as np
 # simulation values
 std_grav = -9.8
-simulation_steps = 100
+simulation_steps = 1000
 pi = np.pi
 sleep_length = 1/60
 
@@ -13,8 +13,8 @@ back_leg_lin_space = 2*pi
 
 # front leg
 amplitude_front_leg = pi/4.0
-frequency_front_leg = 10
-phase_offset_front_leg = pi/4
+frequency_front_leg = 5
+phase_offset_front_leg = pi
 front_leg_lin_space = 2*pi
 
 # joints
