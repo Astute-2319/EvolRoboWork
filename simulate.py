@@ -36,7 +36,7 @@
 # np.save("data/front_leg_sensor_values.npy", front_leg_sensor_values)
 
 
-# p.disconnect()
+# 
 
 from simulation import SIMULATION
 

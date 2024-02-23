@@ -34,3 +34,6 @@ class SIMULATION:
             #     targetPosition = target_angles_front_leg[x],
             #     maxForce = c.torso_front_leg_max_force)
             t.sleep(c.sleep_length)
+    
+    def __del__(self):
+        p.disconnect()
