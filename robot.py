@@ -18,6 +18,7 @@ class ROBOT:
             self.sensors[i].Get_Value(time_stamp)
 
     def Think(self):
+        self.nn.Update()
         self.nn.Print()
     
     def Prepare_To_Act(self):
