@@ -1,10 +1,10 @@
 import matplotlib.pyplot as pyplot
 import numpy as np
 
-backLegSensorValues = np.load('data/back_leg_sensor_values.npy')
-frontLegSensorValues = np.load('data/front_leg_sensor_values.npy')
-targetAnglesValuesBack = np.load('data/target_angles_values_back.npy')
-targetAnglesValuesFront = np.load('data/target_angles_values_front.npy')
+backLegSensorValues = np.load('data/BackLeg_Sensor.npy')
+frontLegSensorValues = np.load('data/FrontLeg_Sensor.npy')
+targetAnglesValuesBack = np.load('data/Torso_BackLeg_Motor.npy')
+targetAnglesValuesFront = np.load('data/Torso_FrontLeg_Motor.npy')
 
 # print(backLegSensorValues)
 
@@ -13,6 +13,9 @@ targetAnglesValuesFront = np.load('data/target_angles_values_front.npy')
 # pyplot.plot(frontLegSensorValues, label = "Front Leg")
 
 # pyplot.legend()
+
+pyplot.xlabel("Iteration")
+pyplot.ylabel("Target Value")
 
 pyplot.plot(targetAnglesValuesBack, label = "Target Values Back")
 
