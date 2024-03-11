@@ -34,5 +34,3 @@ class ROBOT:
                 desiredAngle = self.nn.Get_Value_Of(neuronName)
                 self.motors[jointName].Set_Value(self.robot, desiredAngle)
                 print(desiredAngle)
-        # for i in self.motors:
-        #     self.motors[i].Set_Value(self.robot, time_stamp)
