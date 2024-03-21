@@ -24,6 +24,7 @@ class SIMULATION:
             self.robot.Sense(x)
             self.robot.Think()
             self.robot.Act(x)
+            self.Get_Fitness()
             t.sleep(c.sleep_length)
 
         for sensor in self.robot.sensors:
@@ -31,6 +32,9 @@ class SIMULATION:
         
         for motor in self.robot.motors:
             self.robot.motors[motor].Save_Values()
+
+    def Get_Fitness(self):
+        self.robot.Get_Fitness()
 
     def __del__(self):
         p.disconnect()
