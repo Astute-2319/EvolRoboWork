@@ -1,4 +1,3 @@
-import os
 from hillclimber import HILL_CLIMBER
 
 # for i in range(5):

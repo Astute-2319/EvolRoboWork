@@ -32,4 +32,4 @@ class HILL_CLIMBER:
         self.parent.Evaluate('GUI')
 
     def Print(self):
-        print("\nPARENT: ", self.parent.fitness, " CHILD: ", self.child.fitness)
+        print("\n***** PARENT: ", self.parent.fitness, " CHILD: ", self.child.fitness, "*****")
