@@ -19,7 +19,7 @@ class SIMULATION:
     
     def Run(self):
         for x in range(0, c.simulation_steps):
-            print(x)
+            # print(x)
             p.stepSimulation()
             self.robot.Sense(x)
             self.robot.Think()
