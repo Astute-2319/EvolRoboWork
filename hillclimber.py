@@ -1,5 +1,6 @@
-from solution import SOLUTION
 import constants as c
+import copy
+from solution import SOLUTION
 
 class HILL_CLIMBER:
     def __init__(self):
@@ -7,7 +8,7 @@ class HILL_CLIMBER:
     
     def Evolve(self):
         self.parent.Evaluate()
-        for current_generation in c.number_of_generations:
+        for current_generation in range(c.number_of_generations):
             self.Evolve_For_One_Generation()
     
     def Evolve_For_One_Generation(self):
@@ -17,12 +18,11 @@ class HILL_CLIMBER:
         self.Select()
 
     def Spawn(self):
-        pass
+        self.child = copy.deepcopy(self.parent)
 
     def Mutate(self):
-        pass
+        self.child.Mutate()
 
     def Select(self):
         pass
 
-    
