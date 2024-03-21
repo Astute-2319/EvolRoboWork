@@ -2,6 +2,7 @@ import numpy as np
 import os
 import pyrosim.pyrosim as pyrosim
 import random
+import time
 
 class SOLUTION:
     def __init__(self, next_available_id):
@@ -13,8 +14,11 @@ class SOLUTION:
         self.Generate_Body()
         self.Generate_Brain()
         os.system("start /B python3 simulate.py " + simulation_type + " " + str(self.my_id))
-        fitness_file = open("fitness.txt", 'r')
+        while not os.path.exists("fitness" + str(self.my_id) + ".txt"):
+            time.sleep(0.01)
+        fitness_file = open("fitness" + str(self.my_id) + ".txt", 'r')
         self.fitness = float(fitness_file.read())
+        # print(self.fitness)
         fitness_file.close()
 
     def Mutate(self):

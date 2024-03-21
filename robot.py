@@ -7,6 +7,7 @@ from sensor import SENSOR
 class ROBOT:
     def __init__(self, simulation_id):
         self.robot = p.loadURDF("body.urdf")
+        self.id = simulation_id
         self.nn = NEURAL_NETWORK("brain" + str(simulation_id) + ".nndf")
         os.system("del brain" + str(simulation_id) + ".nndf")
     
@@ -41,8 +42,11 @@ class ROBOT:
         state_of_link_zero = p.getLinkState(self.robot, 0)
         position_of_link_zero = state_of_link_zero[0]
         x_coord_of_link_zero = position_of_link_zero[0]
-        fitness_file = open("fitness.txt", 'w')
+        fitness_file = open("tmp" + str(self.id) + ".txt", 'w')
         fitness_file.write(str(x_coord_of_link_zero))
         fitness_file.close()
+        if os.path.exists("fitness" + str(self.id) + ".txt"):
+            os.remove("fitness" + str(self.id) + ".txt")
+        os.system("rename tmp" + str(self.id) + ".txt fitness" + str(self.id) + ".txt")
         # print(x_coord_of_link_zero)
         # exit()
