@@ -42,5 +42,5 @@ class ROBOT:
         fitness_file = open("fitness.txt", 'w')
         fitness_file.write(str(x_coord_of_link_zero))
         fitness_file.close()
-        print(x_coord_of_link_zero)
+        # print(x_coord_of_link_zero)
         # exit()
