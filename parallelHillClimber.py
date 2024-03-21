@@ -4,9 +4,11 @@ from solution import SOLUTION
 
 class PARALLEL_HILL_CLIMBER:
     def __init__(self):
+        self.next_available_id = 0
         self.parents = {}
         for i in range(0, c.population_size):
-            self.parents[i] = SOLUTION()
+            self.parents[i] = SOLUTION(self.next_available_id)
+            self.next_available_id += 1
     
     def Evolve(self):
         for i in self.parents:
@@ -26,6 +28,8 @@ class PARALLEL_HILL_CLIMBER:
 
     def Mutate(self):
         self.child.Mutate()
+        self.child.Set_ID(self.next_available_id)
+        self.next_available_id += 1
 
     def Select(self):
         if self.parent.fitness > self.child.fitness:

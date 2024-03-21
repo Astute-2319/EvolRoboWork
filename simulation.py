@@ -7,7 +7,7 @@ import time as t
 from world import WORLD
 
 class SIMULATION:
-    def __init__(self, direct_or_gui):
+    def __init__(self, direct_or_gui, simulation_id):
         self.direct_or_gui = direct_or_gui
         if self.direct_or_gui == 'DIRECT':
             self.physicsClient = p.connect(p.DIRECT)
@@ -18,7 +18,7 @@ class SIMULATION:
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0,0,c.std_grav)
         self.world = WORLD()
-        self.robot = ROBOT()
+        self.robot = ROBOT(simulation_id)
         pyrosim.Prepare_To_Simulate(self.robot.robot)
         self.robot.Prepare_To_Sense()
         self.robot.Prepare_To_Act()
