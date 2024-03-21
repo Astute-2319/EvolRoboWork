@@ -7,8 +7,13 @@ import time as t
 from world import WORLD
 
 class SIMULATION:
-    def __init__(self):
-        self.physicsClient = p.connect(p.DIRECT)
+    def __init__(self, direct_or_gui):
+        if direct_or_gui == 'DIRECT':
+            self.physicsClient = p.connect(p.DIRECT)
+        elif direct_or_gui == 'GUI':
+            self.physicsClient = p.connect(p.GUI)
+        else:
+            raise Exception ("Unexpected simulation type", direct_or_gui)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0,0,c.std_grav)
         self.world = WORLD()
