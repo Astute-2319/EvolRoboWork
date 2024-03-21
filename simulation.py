@@ -8,12 +8,13 @@ from world import WORLD
 
 class SIMULATION:
     def __init__(self, direct_or_gui):
-        if direct_or_gui == 'DIRECT':
+        self.direct_or_gui = direct_or_gui
+        if self.direct_or_gui == 'DIRECT':
             self.physicsClient = p.connect(p.DIRECT)
-        elif direct_or_gui == 'GUI':
+        elif self.direct_or_gui == 'GUI':
             self.physicsClient = p.connect(p.GUI)
         else:
-            raise Exception ("Unexpected simulation type", direct_or_gui)
+            raise Exception ("Unexpected simulation type", self.direct_or_gui)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0,0,c.std_grav)
         self.world = WORLD()
@@ -30,7 +31,8 @@ class SIMULATION:
             self.robot.Think()
             self.robot.Act(x)
             self.Get_Fitness()
-            t.sleep(c.sleep_length)
+            if self.direct_or_gui == 'GUI':
+                t.sleep(c.sleep_length)
 
         for sensor in self.robot.sensors:
             self.robot.sensors[sensor].Save_Values()
