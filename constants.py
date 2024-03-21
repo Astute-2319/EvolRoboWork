@@ -5,6 +5,8 @@ simulation_steps = 500
 pi = np.pi
 sleep_length = 1/60
 
+population_size = 2
+
 number_of_generations = 10
 
 # back leg
