@@ -5,6 +5,8 @@ simulation_steps = 500
 pi = np.pi
 sleep_length = 1/60
 
+number_of_generations = 2
+
 # back leg
 amplitude_back_leg = pi/4.0
 frequency_back_leg = 10
