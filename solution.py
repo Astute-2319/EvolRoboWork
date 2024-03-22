@@ -16,7 +16,7 @@ class SOLUTION:
         self.Create_World()
         self.Generate_Body()
         self.Generate_Brain()
-        os.system("start /B python3 simulate.py " + simulation_type + " " + str(self.my_id))
+        os.system("start /B python3 simulate.py " + simulation_type + " " + str(self.my_id) + " >nul")
 
     def Wait_For_Simulation(self):
         while not os.path.exists("fitness" + str(self.my_id) + ".txt"):
