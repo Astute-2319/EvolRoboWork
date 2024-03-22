@@ -20,7 +20,7 @@ class SOLUTION:
 
     def Wait_For_Simulation(self):
         while not os.path.exists("fitness" + str(self.my_id) + ".txt"):
-            time.sleep(0.01)
+            time.sleep(0.1)
         fitness_file = open("fitness" + str(self.my_id) + ".txt", 'r')
         self.fitness = float(fitness_file.read())
         # print("***** FITNESS FOR ID " + str(self.my_id) + ": " + str(self.fitness))
