@@ -17,7 +17,7 @@ class PARALLEL_HILL_CLIMBER:
         self.Evaluate(self.parents)
 
         for current_generation in range(c.number_of_generations):
-            print("GENERATION ", current_generation+1, "OF ", c.number_of_generations)
+            print("GENERATION", current_generation+1, "OF", c.number_of_generations)
             self.Evolve_For_One_Generation()
     
     def Evolve_For_One_Generation(self):
