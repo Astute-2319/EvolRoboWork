@@ -1,5 +1,6 @@
 import constants as c
 import copy
+import pyrosim.pyrosim as pyrosim
 from solution import SOLUTION
 import time
 
@@ -12,6 +13,8 @@ class PARALLEL_HILL_CLIMBER:
             self.next_available_id += 1
     
     def Evolve(self):
+        pyrosim.Start_SDF("world.sdf")
+        pyrosim.End()
         for i in self.parents:
             self.parents[i].Start_Simulation('DIRECT')
             # for current_generation in range(c.number_of_generations):
