@@ -1,7 +1,7 @@
 import numpy as np
 # simulation values
 std_grav = -9.8
-simulation_steps = 500
+simulation_steps = 100
 pi = np.pi
 sleep_length = 1/60
 
