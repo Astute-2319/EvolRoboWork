@@ -1,4 +1,5 @@
 import constants as c
+import os
 import pybullet as p
 import pybullet_data
 import pyrosim.pyrosim as pyrosim
@@ -39,6 +40,8 @@ class SIMULATION:
         
         for motor in self.robot.motors:
             self.robot.motors[motor].Save_Values()
+
+        os.system("move /Y tmp" + str(self.robot.id) + ".txt fitness" + str(self.robot.id) + ".txt >nul")
 
     def Get_Fitness(self):
         self.robot.Get_Fitness()

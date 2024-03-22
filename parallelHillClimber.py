@@ -1,6 +1,7 @@
 import constants as c
 import copy
 from solution import SOLUTION
+import time
 
 class PARALLEL_HILL_CLIMBER:
     def __init__(self):
@@ -12,9 +13,14 @@ class PARALLEL_HILL_CLIMBER:
     
     def Evolve(self):
         for i in self.parents:
-            self.parents[i].Evaluate('DIRECT')
+            self.parents[i].Start_Simulation('GUI')
             # for current_generation in range(c.number_of_generations):
             #     self.Evolve_For_One_Generation()
+        
+        # time.sleep(7)
+
+        for i in self.parents:
+            self.parents[i].Wait_For_Simulation()
     
     def Evolve_For_One_Generation(self):
         self.Spawn()

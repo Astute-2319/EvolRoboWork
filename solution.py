@@ -10,22 +10,23 @@ class SOLUTION:
         self.my_id = next_available_id
     
     def Evaluate(self, simulation_type):
+        pass
+
+    def Start_Simulation(self, simulation_type):
         self.Create_World()
         self.Generate_Body()
         self.Generate_Brain()
         os.system("start /B python3 simulate.py " + simulation_type + " " + str(self.my_id))
+
+    def Wait_For_Simulation(self):
         while not os.path.exists("fitness" + str(self.my_id) + ".txt"):
             time.sleep(0.01)
         fitness_file = open("fitness" + str(self.my_id) + ".txt", 'r')
         self.fitness = float(fitness_file.read())
-        # print(self.fitness)
+        print("***** FITNESS FOR ID " + str(self.my_id) + ": " + str(self.fitness))
         fitness_file.close()
-    
-    def Start_Simulation(self):
-        pass
+        os.system("del fitness" + str(self.my_id) + ".txt")
 
-    def Wait_For_Simulation(self):
-        pass
 
     def Mutate(self):
         new_sensor = random.randint(0, 2)

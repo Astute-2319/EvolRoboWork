@@ -45,6 +45,5 @@ class ROBOT:
         fitness_file = open("tmp" + str(self.id) + ".txt", 'w')
         fitness_file.write(str(x_coord_of_link_zero))
         fitness_file.close()
-        os.system("move /Y tmp" + str(self.id) + ".txt fitness" + str(self.id) + ".txt >nul")
         # print(x_coord_of_link_zero)
         # exit()
