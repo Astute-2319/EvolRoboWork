@@ -23,10 +23,9 @@ class SOLUTION:
             time.sleep(0.01)
         fitness_file = open("fitness" + str(self.my_id) + ".txt", 'r')
         self.fitness = float(fitness_file.read())
-        print("***** FITNESS FOR ID " + str(self.my_id) + ": " + str(self.fitness))
+        # print("***** FITNESS FOR ID " + str(self.my_id) + ": " + str(self.fitness))
         fitness_file.close()
         os.system("del fitness" + str(self.my_id) + ".txt")
-
 
     def Mutate(self):
         new_sensor = random.randint(0, 2)
