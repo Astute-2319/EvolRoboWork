@@ -7,8 +7,6 @@ import time
 
 class PARALLEL_HILL_CLIMBER:
     def __init__(self):
-        os.system("del brain*.nndf 2>nul")
-        os.system("del fitness*.txt 2>nul")
         self.next_available_id = 0
         self.parents = {}
         for i in range(0, c.population_size):
@@ -16,23 +14,17 @@ class PARALLEL_HILL_CLIMBER:
             self.next_available_id += 1
     
     def Evolve(self):
-        pyrosim.Start_SDF("world.sdf")
-        pyrosim.End()
-        for i in self.parents:
-            self.parents[i].Start_Simulation('DIRECT')
-        
-        for i in self.parents:
-            self.parents[i].Wait_For_Simulation()
+        self.Evaluate(self.parents)
 
         for current_generation in range(c.number_of_generations):
             self.Evolve_For_One_Generation()
     
     def Evolve_For_One_Generation(self):
         self.Spawn()
-        # self.Mutate()
-        # self.child.Evaluate('DIRECT')
-        # self.Print()
-        # self.Select()
+        self.Mutate()
+        self.Evaluate(self.children)
+        self.Print()
+        self.Select()
 
     def Spawn(self):
         self.children = {}
@@ -43,17 +35,32 @@ class PARALLEL_HILL_CLIMBER:
         # self.child = copy.deepcopy(self.parent)
 
     def Mutate(self):
-        self.child.Mutate()
-        self.child.Set_ID(self.next_available_id)
-        self.next_available_id += 1
+        for i in self.children:
+            self.children[i].Mutate()
+        # self.child.Mutate()
+        # self.child.Set_ID(self.next_available_id)
+        # self.next_available_id += 1
+            
+    def Evaluate(self, solutions):
+        for i in solutions:
+            solutions[i].Start_Simulation('DIRECT')
+        
+        for i in solutions:
+            solutions[i].Wait_For_Simulation()
 
     def Select(self):
-        if self.parent.fitness > self.child.fitness:
-            self.parent = self.child
+        for i in self.parents.keys():
+            if self.parents[i].fitness > self.children[i].fitness:
+                self.parents[i] = self.children[i]
 
     def Show_Best(self):
-        pass
-        # self.parent.Evaluate('GUI')
+        best_parent = self.parents[0]
+        for i in self.parents.keys():
+            if self.parents[i].fitness < best_parent.fitness:
+                best_parent = self.parents[i]
+        best_parent.Start_Simulation('GUI')
 
     def Print(self):
-        print("\n***** PARENT: ", self.parent.fitness, " CHILD: ", self.child.fitness, "*****")
+        for i in self.parents.keys():
+            print("\n Fitness of Parent: " + str(self.parents[i].fitness) + " Fitness of Child: " + str(self.children[i].fitness))
+        # print("\n***** PARENT: ", self.parent.fitness, " CHILD: ", self.child.fitness, "*****")

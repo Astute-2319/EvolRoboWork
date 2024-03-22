@@ -5,7 +5,7 @@ simulation_steps = 100
 pi = np.pi
 sleep_length = 1/60
 
-population_size = 2
+population_size = 10
 
 number_of_generations = 10
 

@@ -4,6 +4,7 @@ import pyrosim.pyrosim as pyrosim
 from pyrosim.neuralNetwork import NEURAL_NETWORK
 from motor import MOTOR
 from sensor import SENSOR
+
 class ROBOT:
     def __init__(self, simulation_id):
         self.robot = p.loadURDF("body.urdf")

@@ -13,8 +13,8 @@ class SOLUTION:
         pass
 
     def Start_Simulation(self, simulation_type):
-        self.Create_World()
-        self.Generate_Body()
+        # self.Create_World()
+        # self.Generate_Body()
         self.Generate_Brain()
         os.system("start /B python3 simulate.py " + simulation_type + " " + str(self.my_id) + " >nul")
 
