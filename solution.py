@@ -20,6 +20,12 @@ class SOLUTION:
         self.fitness = float(fitness_file.read())
         # print(self.fitness)
         fitness_file.close()
+    
+    def Start_Simulation(self):
+        pass
+
+    def Wait_For_Simulation(self):
+        pass
 
     def Mutate(self):
         new_sensor = random.randint(0, 2)
